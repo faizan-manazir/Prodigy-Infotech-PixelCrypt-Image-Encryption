@@ -32,7 +32,7 @@ export default function AboutPage() {
       </div>
       
       <a 
-        href="https://github.com/faizan-manazir/Prodigy-Infotech-Image-Encryption" 
+        href="https://github.com/faizan-manazir/Prodigy-Infotech-PixelCrypt-Image-Encryption" 
         target="_blank" 
         rel="noreferrer"
         className="inline-flex items-center gap-2 px-6 py-3 bg-surface border border-white/10 rounded-full hover:bg-white/5 transition-colors font-medium"

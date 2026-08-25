@@ -26,7 +26,7 @@ export default function Navbar() {
               <Link href="/about" className="text-muted hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">
                 About
               </Link>
-              <a href="https://github.com/faizan-manazir/Prodigy-Infotech-Image-Encryption" target="_blank" rel="noreferrer" className="text-muted hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">
+              <a href="https://github.com/faizan-manazir/Prodigy-Infotech-PixelCrypt-Image-Encryption" target="_blank" rel="noreferrer" className="text-muted hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">
                 GitHub
               </a>
             </div>
