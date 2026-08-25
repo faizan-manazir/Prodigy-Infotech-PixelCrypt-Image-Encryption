@@ -1,203 +1,334 @@
-# PixelCrypt
+Copy and paste this entire content into your `README.md`:
 
-> **A full-stack educational web application for reversible image transformation through pixel-level manipulation.**
+````md
+# 🔐 PixelCrypt — Image Encryption Through Pixel Manipulation
 
-PixelCrypt allows users to upload an image, choose a transformation method, provide a key, generate an encrypted-looking PNG, and later recover the original pixel data using the correct key and method.
+![PixelCrypt Home](screenshots/home.png)
 
-The application is built as **Task 2: Pixel Manipulation for Image Encryption** and focuses on practical image processing, reversible transformations, backend validation, and a modern web interface.
+A modern full-stack web application for **encrypting and decrypting images through reversible pixel-level transformations**.
 
----
+PixelCrypt allows users to upload an image, select an encryption method, provide a secret key, encrypt the image, and later recover it using the correct key and method. The application combines a polished cybersecurity-inspired interface with multiple educational image-transformation algorithms.
 
-## Screenshots
-
-### Home
-
-![PixelCrypt Home](screenshots/01-home.png)
-
-### Encryption Workspace
-
-![Encryption Workspace](screenshots/02-encryption-workspace.png)
-
-### Encrypted Result
-
-![Encrypted Result](screenshots/03-encrypted-result.png)
-
-### Decryption Workspace
-
-![Decryption Workspace](screenshots/04-decryption-workspace.png)
-
-### Verified Decryption Result
-
-![Verified Decryption Result](screenshots/05-decrypted-result.png)
+> **Project Context:** Developed as **Task 2 — Pixel Manipulation for Image Encryption** during the Prodigy InfoTech Cyber Security Internship.
 
 ---
 
-## Features
+## ✨ Features
 
-- Modern responsive cybersecurity-inspired interface
-- Drag-and-drop image upload
-- Image preview before processing
-- PNG, JPG, JPEG, WEBP, and BMP input support
-- 10 MB upload limit
-- Four reversible pixel-transformation methods
-- Hybrid mode combining multiple transformations
-- Key visibility toggle
-- Processing progress states
-- Original versus encrypted result comparison
-- Downloadable PNG output
-- Key and method verification during decryption
-- Wrong-key detection
-- Wrong-method detection
-- Pixel checksum verification after recovery
-- Backend-side validation
-- Configurable API URL and CORS settings
-- Unit tests for transformation and validation logic
+- 🖼️ Upload and process images through a modern web interface
+- 🔐 Key-based image transformation
+- 🔄 Image encryption and decryption workflows
+- 🧩 Multiple reversible pixel manipulation methods
+- ⚡ Hybrid encryption mode
+- 🔢 XOR pixel transformation
+- 🔀 Pixel position permutation
+- 🎨 RGB channel permutation
+- 👁️ Original and processed image previews
+- 📊 Image metadata display
+- 🔑 Encryption key visibility toggle
+- ❌ Wrong-key and incorrect-method detection
+- 🛡️ Input and file validation
+- 📱 Responsive interface
+- 🌐 REST API backend
+- 🧪 Automated backend tests
 
 ---
 
-## Transformation Methods
+# 📸 Application Screenshots
 
-### Hybrid Mode
+## 🏠 Home Page
 
-The recommended educational mode combines:
+The landing page introduces PixelCrypt and provides access to the encryption and decryption tools.
+
+![PixelCrypt Home Page](screenshots/home.png)
+
+---
+
+## 🔐 Encryption Workspace
+
+Users can upload an image, choose an encryption method, enter a secret key, and start the encryption process.
+
+![Encryption Page](screenshots/encryption-page.png)
+
+---
+
+## 🔒 Encrypted Image Result
+
+After processing, PixelCrypt displays the encrypted image and allows the user to download the result.
+
+![Encrypted Result](screenshots/encrypted-result.png)
+
+---
+
+## 🔓 Decryption Workspace
+
+Users can upload an encrypted image and provide the correct encryption method and key to recover the original image.
+
+![Decryption Page](screenshots/decryption-page.png)
+
+---
+
+## ✅ Decrypted Image Result
+
+When the correct key and method are provided, the image is successfully recovered and verified.
+
+![Decrypted Result](screenshots/decrypted-result.png)
+
+---
+
+## ❌ Incorrect Key Detection
+
+PixelCrypt validates the decryption process and prevents the application from falsely reporting a successful recovery when an incorrect key or method is used.
+
+![Incorrect Key Detection](screenshots/incorrect_key.png)
+
+---
+
+## 🧠 How It Works
+
+The application includes a dedicated page explaining the pixel-level transformation process and the available encryption methods.
+
+![How It Works](screenshots/how-it-works.png)
+
+---
+
+# ⚙️ How PixelCrypt Works
+
+```text
+                     ┌─────────────────┐
+                     │   Upload Image  │
+                     └────────┬────────┘
+                              │
+                              ▼
+                     ┌─────────────────┐
+                     │ Select Method   │
+                     └────────┬────────┘
+                              │
+                              ▼
+                     ┌─────────────────┐
+                     │  Enter Secret   │
+                     │       Key       │
+                     └────────┬────────┘
+                              │
+                              ▼
+                     ┌─────────────────┐
+                     │ Pixel-Level     │
+                     │ Transformation  │
+                     └────────┬────────┘
+                              │
+                              ▼
+                     ┌─────────────────┐
+                     │ Encrypted Image │
+                     └────────┬────────┘
+                              │
+                              ▼
+                         Download
+````
+
+For decryption:
+
+```text
+                     ┌─────────────────┐
+                     │ Encrypted Image │
+                     └────────┬────────┘
+                              │
+                              ▼
+                     ┌─────────────────┐
+                     │ Correct Method  │
+                     └────────┬────────┘
+                              │
+                              ▼
+                     ┌─────────────────┐
+                     │ Correct Secret  │
+                     │       Key       │
+                     └────────┬────────┘
+                              │
+                              ▼
+                     ┌─────────────────┐
+                     │ Reverse Pixel   │
+                     │ Transformation  │
+                     └────────┬────────┘
+                              │
+                              ▼
+                     ┌─────────────────┐
+                     │ Verify Result   │
+                     └────────┬────────┘
+                              │
+                              ▼
+                     ┌─────────────────┐
+                     │ Recovered Image │
+                     └─────────────────┘
+```
+
+---
+
+# 🔐 Encryption Methods
+
+## 1. XOR Pixel Transformation
+
+This method performs a reversible bitwise operation on pixel values using a key-derived transformation.
+
+```text
+Encrypted Pixel = Original Pixel XOR Key Stream
+```
+
+The same operation can be reversed with the correct key.
+
+---
+
+## 2. Pixel Position Permutation
+
+Instead of only changing pixel values, this method rearranges pixel positions using a deterministic sequence generated from the encryption key.
 
 ```text
 Original Image
-      |
-      v
+A B C D
+E F G H
+I J K L
+
+        │
+        ▼
+
 Pixel Permutation
-      |
-      v
-RGB Channel Permutation
-      |
-      v
-XOR Pixel Transformation
-      |
-      v
-Encrypted PNG
+
+        │
+        ▼
+
+Encrypted Image
+G B K
+A I C
+L E H
 ```
 
-Decryption reverses the sequence:
+The correct key reproduces the same sequence, allowing the transformation to be reversed.
+
+---
+
+## 3. RGB Channel Permutation
+
+This method rearranges the red, green, and blue channels.
+
+Example:
 
 ```text
-Encrypted PNG
-      |
-      v
+Original Pixel
+
+R = 120
+G = 80
+B = 200
+
+        │
+        ▼
+
+Channel Permutation
+
+        │
+        ▼
+
+Transformed Pixel
+
+R = G
+G = B
+B = R
+```
+
+---
+
+## 4. Hybrid Mode ⭐
+
+Hybrid Mode combines multiple reversible transformations.
+
+```text
+Original Image
+      │
+      ▼
+Key-Derived Seed
+      │
+      ▼
+Pixel Position Permutation
+      │
+      ▼
+RGB Channel Transformation
+      │
+      ▼
+XOR Pixel Transformation
+      │
+      ▼
+Encrypted Image
+```
+
+During decryption, the transformations are reversed in the correct order.
+
+```text
+Encrypted Image
+      │
+      ▼
 Reverse XOR
-      |
-      v
-Reverse RGB Channel Permutation
-      |
-      v
+      │
+      ▼
+Reverse RGB Transformation
+      │
+      ▼
 Reverse Pixel Permutation
-      |
-      v
+      │
+      ▼
 Recovered Image
 ```
 
-### XOR Pixel Transformation
+---
 
-A deterministic key-derived byte stream is XORed with the image pixel values.
+# 🛡️ Validation and Verification
 
-Because XOR is self-inverse, the same key-derived stream is used to reverse the operation.
+The application includes validation for:
 
-### Pixel Permutation
+* Supported image formats
+* Invalid files
+* Corrupted images
+* Empty uploads
+* File size limits
+* Invalid encryption methods
+* Empty encryption keys
+* Short encryption keys
+* Incorrect decryption keys
+* Incorrect decryption methods
 
-Complete pixels are deterministically rearranged according to a key-derived permutation.
-
-### RGB Channel Permutation
-
-The RGB channels are rearranged using a deterministic permutation while preserving the alpha channel.
+The application also verifies the recovered image to reduce the risk of falsely reporting a successful decryption when the wrong key or transformation method is supplied.
 
 ---
 
-## Verified Decryption
+# 🧰 Technology Stack
 
-PixelCrypt encrypted PNG files contain a small metadata envelope that records:
+## Frontend
 
-- PixelCrypt format identifier
-- Format version
-- Selected transformation method
-- SHA-256 checksum of the original decoded pixel data
-- Key-derived integrity verifier
+* Next.js
+* TypeScript
+* React
+* Tailwind CSS
+* Lucide Icons
 
-During decryption, the application:
+## Backend
 
-1. Reads the PixelCrypt metadata.
-2. Checks that the selected method matches.
-3. Validates the verifier using the supplied key.
-4. Rejects an incorrect key or method.
-5. Reverses the pixel transformation.
-6. Calculates the recovered pixel checksum.
-7. Confirms that the recovered pixels match the original checksum.
+* Python
+* FastAPI
+* Pillow
+* NumPy
+* Uvicorn
 
-```text
-Correct Key + Correct Method
-            |
-            v
-    Verification Passes
-            |
-            v
- Reverse Transformation
-            |
-            v
- Recovered Checksum Matches
-            |
-            v
-       SUCCESS
-```
+## Testing
 
-```text
-Wrong Key / Wrong Method
-            |
-            v
-   Verification Fails
-            |
-            v
- Request Rejected
-```
-
-> This verification mechanism is intended for this educational reversible-image workflow. It does not turn the custom transformation algorithms into a replacement for established authenticated encryption.
+* Pytest
 
 ---
 
-## Technology Stack
-
-### Frontend
-
-- Next.js
-- React
-- TypeScript
-- Tailwind CSS
-- Lucide React
-- Axios
-
-### Backend
-
-- Python
-- FastAPI
-- Pillow
-- NumPy
-- Pytest
-
----
-
-## Project Structure
+# 📂 Repository Structure
 
 ```text
-PixelCrypt/
+Prodigy-Infotech-PixelCrypt-Image-Encryption/
 │
 ├── README.md
 ├── LICENSE
 ├── .gitignore
 ├── .env.example
-│
-├── screenshots/
-│   ├── 01-home.png
-│   ├── 02-encryption-workspace.png
-│   ├── 03-encrypted-result.png
-│   ├── 04-decryption-workspace.png
-│   └── 05-decrypted-result.png
 │
 ├── backend/
 │   ├── main.py
@@ -225,68 +356,73 @@ PixelCrypt/
 │   │
 │   └── tests/
 │       ├── test_crypto.py
+│       ├── test_api.py
 │       └── test_validation.py
 │
-└── frontend/
-    ├── app/
-    │   ├── layout.tsx
-    │   ├── page.tsx
-    │   ├── globals.css
-    │   ├── encrypt/
-    │   │   └── page.tsx
-    │   ├── decrypt/
-    │   │   └── page.tsx
-    │   ├── how-it-works/
-    │   │   └── page.tsx
-    │   └── about/
-    │       └── page.tsx
-    │
-    ├── components/
-    │   ├── Navbar.tsx
-    │   ├── Footer.tsx
-    │   ├── ImageUploader.tsx
-    │   └── Toast.tsx
-    │
-    ├── lib/
-    │   └── api.ts
-    │
-    ├── public/
-    ├── .env.example
-    ├── package.json
-    ├── package-lock.json
-    ├── tsconfig.json
-    ├── next.config.ts
-    └── .gitignore
+├── frontend/
+│   ├── app/
+│   │   ├── globals.css
+│   │   ├── layout.tsx
+│   │   ├── page.tsx
+│   │   │
+│   │   ├── encrypt/
+│   │   │   └── page.tsx
+│   │   │
+│   │   ├── decrypt/
+│   │   │   └── page.tsx
+│   │   │
+│   │   ├── how-it-works/
+│   │   │   └── page.tsx
+│   │   │
+│   │   └── about/
+│   │       └── page.tsx
+│   │
+│   ├── components/
+│   │   ├── Navbar.tsx
+│   │   ├── Footer.tsx
+│   │   ├── ImageUploader.tsx
+│   │   ├── ImagePreview.tsx
+│   │   ├── KeyInput.tsx
+│   │   ├── MethodSelector.tsx
+│   │   └── ProcessingStatus.tsx
+│   │
+│   ├── lib/
+│   │   └── api.ts
+│   │
+│   ├── public/
+│   │
+│   ├── package.json
+│   ├── package-lock.json
+│   ├── tsconfig.json
+│   └── .gitignore
+│
+└── screenshots/
+    ├── decrypted-result.png
+    ├── decryption-page.png
+    ├── encrypted-result.png
+    ├── encryption-page.png
+    ├── home.png
+    ├── how-it-works.png
+    └── incorrect_key.png
 ```
 
 ---
 
-## Requirements
+# 🚀 Installation
 
-### Backend
+## Prerequisites
 
-- Python 3.10 or newer
-- pip
+Make sure you have installed:
 
-### Frontend
-
-- Node.js 18 or newer
-- npm
+* Python 3.10 or later
+* Node.js 18 or later
+* npm
 
 ---
 
-## Installation
+# 🖥️ Backend Setup
 
-### 1. Clone the Repository
-
-```bash
-git clone https://github.com/faizan-manazir/Prodigy-Infotech-PixelCrypt-Image-Encryption.git
-cd Prodigy-Infotech-PixelCrypt-Image-Encryption
-```
-
-### 2. Start the Backend
-
-Open a terminal:
+Navigate to the backend directory:
 
 ```bash
 cd backend
@@ -294,33 +430,37 @@ cd backend
 
 Create a virtual environment:
 
-**Windows**
-
 ```bash
 python -m venv venv
+```
+
+Activate the environment.
+
+### Windows
+
+```bash
 venv\Scripts\activate
 ```
 
-**Linux/macOS**
+### Linux/macOS
 
 ```bash
-python3 -m venv venv
 source venv/bin/activate
 ```
 
-Install dependencies:
+Install the required dependencies:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Run the API:
+Start the FastAPI server:
 
 ```bash
-uvicorn main:app --reload
+uvicorn main:app --reload --port 8000
 ```
 
-The backend runs at:
+The backend should run at:
 
 ```text
 http://localhost:8000
@@ -332,17 +472,29 @@ API documentation is available at:
 http://localhost:8000/docs
 ```
 
-### 3. Start the Frontend
+---
 
-Open another terminal:
+# 🌐 Frontend Setup
+
+Open another terminal and navigate to the frontend directory:
 
 ```bash
 cd frontend
+```
+
+Install dependencies:
+
+```bash
 npm install
+```
+
+Start the development server:
+
+```bash
 npm run dev
 ```
 
-Open:
+Open the application:
 
 ```text
 http://localhost:3000
@@ -350,71 +502,51 @@ http://localhost:3000
 
 ---
 
-## Environment Configuration
+# 🧪 Running Tests
 
-The frontend API URL can be configured with:
+Navigate to the backend directory:
 
-```text
-frontend/.env.local
+```bash
+cd backend
 ```
 
-Example:
+Activate the virtual environment and run:
 
-```env
-NEXT_PUBLIC_API_URL=http://localhost:8000/api
+```bash
+pytest
 ```
 
-The backend CORS origins can be configured with:
+Or:
 
-```env
-PIXELCRYPT_CORS_ORIGINS=http://localhost:3000
+```bash
+python -m pytest
 ```
 
-For multiple origins:
-
-```env
-PIXELCRYPT_CORS_ORIGINS=http://localhost:3000,https://your-domain.example
-```
+The tests cover the core reversible transformation logic and validation functionality.
 
 ---
 
-## API Endpoints
+# 🔌 API Endpoints
 
-### Health Check
+## Health Check
 
 ```http
 GET /api/health
 ```
 
-### Encrypt an Image
+## Encrypt Image
 
 ```http
 POST /api/encrypt
 ```
 
-Form fields:
-
-```text
-image   Image file
-key     8–128 character key
-method  hybrid | xor | swap | channel
-```
-
-### Decrypt an Image
+## Decrypt Image
 
 ```http
 POST /api/decrypt
 ```
 
-Form fields:
-
-```text
-image   PixelCrypt encrypted PNG
-key     Original 8–128 character key
-method  Original method
-```
-
-### Image Information
+## Get Image Information
 
 ```http
 POST /api/image/info
@@ -422,110 +554,123 @@ POST /api/image/info
 
 ---
 
-## Validation
+# 🧪 Testing the Application
 
-The backend independently validates:
-
-- Allowed MIME types
-- Empty uploads
-- 10 MB maximum file size
-- Corrupted or unsupported images
-- Maximum image dimensions
-- Encryption key length
-- Supported transformation methods
-
-Frontend validation improves the user experience, but backend validation remains the authoritative security boundary.
-
----
-
-## Testing
-
-Run the backend tests:
-
-```bash
-cd backend
-pytest -q
-```
-
-The test suite covers:
-
-- XOR reversibility
-- Pixel permutation reversibility
-- RGB channel transformation reversibility
-- Hybrid transformation reversibility
-- Deterministic checksums
-- Key verifier behavior
-- Empty-key rejection
-
----
-
-## Important Output Behavior
-
-Encrypted images are always exported as **PNG**.
-
-This is intentional because PNG preserves transformed pixel values without introducing lossy compression artifacts.
-
-If a JPG, WEBP, or BMP image is uploaded:
-
-- The decoded image pixels are transformed.
-- The encrypted output is a PNG.
-- Decryption recovers the decoded pixel data as a PNG.
-- Original file bytes, original filename, EXIF metadata, and original lossy compression are not reconstructed.
-
----
-
-## Security Disclaimer
-
-PixelCrypt is an **educational image-processing and reversible pixel-transformation project**.
-
-Its custom algorithms should **not** be considered a replacement for standard cryptographic encryption such as:
-
-- AES-GCM
-- ChaCha20-Poly1305
-
-For real sensitive data, use established, peer-reviewed authenticated encryption libraries and protocols.
-
----
-
-## Repository Cleanup
-
-The repository intentionally excludes generated dependencies and runtime artifacts such as:
+A typical workflow is:
 
 ```text
-backend/venv/
-frontend/node_modules/
-frontend/.next/
-**/__pycache__/
-backend/.pytest_cache/
-```
-
-Install dependencies locally using:
-
-```bash
-pip install -r backend/requirements.txt
-```
-
-and:
-
-```bash
-cd frontend
-npm install
+1. Start the backend
+        │
+        ▼
+2. Start the frontend
+        │
+        ▼
+3. Upload an image
+        │
+        ▼
+4. Select Hybrid Mode
+        │
+        ▼
+5. Enter a secret key
+        │
+        ▼
+6. Encrypt the image
+        │
+        ▼
+7. Download encrypted image
+        │
+        ▼
+8. Open Decrypt page
+        │
+        ▼
+9. Upload encrypted image
+        │
+        ▼
+10. Use the same method and key
+        │
+        ▼
+11. Verify and recover the image
 ```
 
 ---
 
-## Academic Context
+# ⚠️ Important Security Note
 
-**Task 2 — Pixel Manipulation for Image Encryption**
+PixelCrypt is an **educational project focused on reversible pixel manipulation and image transformation**.
 
-The project implements the internship requirement of encrypting and decrypting images through pixel-level operations such as mathematical pixel transformations and pixel swapping, while extending the task into a complete full-stack portfolio application.
+The included algorithms are designed to demonstrate concepts such as:
+
+* XOR operations
+* Deterministic transformations
+* Pixel permutation
+* RGB channel manipulation
+* Key-derived random sequences
+* Reversible image processing
+
+This project should **not be considered a replacement for established cryptographic systems** such as authenticated encryption using AES-GCM or ChaCha20-Poly1305.
+
+For real-world protection of sensitive images, established and peer-reviewed cryptographic libraries and authenticated encryption standards should be used.
 
 ---
 
-## License
+# 🎓 Internship Context
 
-See the [LICENSE](LICENSE) file for licensing information.
+This project was developed as part of the:
+
+**Prodigy InfoTech Cyber Security Internship**
+
+### Task 2
+
+> **Pixel Manipulation for Image Encryption**
+
+The task focuses on developing an image encryption tool that performs operations on pixel values and allows users to encrypt and decrypt images.
+
+PixelCrypt expands this concept into a complete full-stack web application with multiple reversible pixel-transformation methods, validation, verification, testing, and a modern graphical user interface.
 
 ---
 
-**Built for education, image processing, and practical cybersecurity learning.**
+# 🚀 Future Improvements
+
+Possible future enhancements include:
+
+* AES-GCM encryption mode for actual cryptographic protection
+* Password-based key derivation using Argon2 or PBKDF2
+* Drag-and-drop batch processing
+* Image comparison slider
+* Encryption history
+* User authentication
+* Temporary encrypted file storage
+* Cloud deployment
+* Docker support
+* Rate limiting
+* Advanced metadata sanitization
+* Additional image transformation modes
+* Progressive Web App support
+
+---
+
+# 📜 License
+
+This project is licensed under the terms specified in the [LICENSE](LICENSE) file.
+
+---
+
+## 🔐 PixelCrypt
+
+**Upload • Transform • Encrypt • Verify • Recover**
+
+A portfolio project demonstrating pixel-level image transformation, reversible algorithms, full-stack development, API design, validation, and cybersecurity concepts.
+
+````
+
+This matches your **current screenshot filenames exactly**:
+
+```text
+decrypted-result.png
+decryption-page.png
+encrypted-result.png
+encryption-page.png
+home.png
+how-it-works.png
+incorrect_key.png
+````
