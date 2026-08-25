@@ -1,6 +1,0 @@
-node_modules/
-.next/
-backend/venv/
-backend/__pycache__/
-backend/.pytest_cache/
-*.pyc
