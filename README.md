@@ -1,7 +1,5 @@
 # 🔐 PixelCrypt — Image Encryption Through Pixel Manipulation
 
-![PixelCrypt Home](screenshots/home.png)
-
 A modern full-stack web application for **encrypting and decrypting images through reversible pixel-level transformations**.
 
 PixelCrypt allows users to upload an image, select an encryption method, provide a secret key, encrypt the image, and later recover it using the correct key and method. The application combines a modern cybersecurity-inspired interface with multiple educational image-transformation algorithms.
