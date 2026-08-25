@@ -1,5 +1,3 @@
-Copy and paste this entire content into your `README.md`:
-
 ````md
 # 🔐 PixelCrypt — Image Encryption Through Pixel Manipulation
 
