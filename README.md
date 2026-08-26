@@ -3,9 +3,6 @@
 A modern full-stack web application for **encrypting and decrypting images through reversible pixel-level transformations**.
 
 PixelCrypt allows users to upload an image, select an encryption method, provide a secret key, encrypt the image, and later recover it using the correct key and method. The application combines a modern cybersecurity-inspired interface with multiple educational image-transformation algorithms.
-
-> **Project Context:** Developed as **Task 2 — Pixel Manipulation for Image Encryption** during the Prodigy InfoTech Cyber Security Internship.
-
 ---
 
 ## ✨ Features
@@ -458,20 +455,6 @@ The included methods demonstrate concepts such as:
 This project should **not be considered a replacement for established cryptographic systems** such as AES-GCM or ChaCha20-Poly1305 for protecting sensitive data.
 
 For real-world protection of sensitive images, established and peer-reviewed cryptographic libraries and authenticated encryption standards should be used.
-
----
-
-# 🎓 Internship Context
-
-This project was developed as part of the:
-
-**Prodigy InfoTech Cyber Security Internship**
-
-### Task 2 — Pixel Manipulation for Image Encryption
-
-The task focuses on developing an image encryption tool that performs operations on pixel values and allows users to encrypt and decrypt images.
-
-PixelCrypt expands this concept into a complete web application with a frontend interface, backend API, reversible image transformations, validation, verification, testing, and a modern graphical user interface.
 
 ---
 
